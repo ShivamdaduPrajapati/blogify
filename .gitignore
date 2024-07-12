@@ -2,7 +2,7 @@
 #.env
 # Node.js modules
 node_modules/
-
+public/
 # Logs
 logs/
 *.log
