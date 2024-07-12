@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= locals.blog.title %>
+    </title>
+    <%- include("partials/link") %>
+        <style>
+            .deletesvg{
+                right :38%
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container mt-4"> 
+    <%- include("partials/nav") %>
+</div> 
+        <div class="container mt-4">
+            <div class="row">
+              <div class="col-md-8 mx-auto">
+                <div class="card mb-3">
+                  <img src="<%= locals.blog.coverImage %>" class="card-img-top" alt="Blog Post Image">
+                  <div class="card-body">
+                    <h2 class="card-title"><%= locals.blog.title %></h2>
+                    <p class="card-text  font-weight-bold">Published by <%= locals.username %> on <%= locals.blog.createdAt %></p>
+                    <hr>
+                    <p class="card-text"> <%= locals.blog.body %></p>
+                    <% if (locals.username == locals.user.name) { %>
+                        <a href="/blog/edit/<%= locals.blog.id %>" class="btn btn-primary mr-2">Edit</a>
+                        <a href="/blog/delete/<%= locals.blog.id %>" class="btn btn-danger">Delete</a>
+                    <% } %>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="container mt-4">
+            <div class="row">
+              <div class="col-md-8  mx-auto">
+                <h2 class="mb-4">Comments</h2>
+                <!-- Comment Form -->
+                <form action="/blog/<%= locals.blog.id %>" method="post" >
+                  
+                  <div class="form-group">
+                    <label for="comment" name="body" placeholder="Comment here">Your Comment:</label>
+                    <textarea class="form-control" name="body" id="comment" rows="3" placeholder="Enter your comment"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <hr>
+                <!-- Comment List -->
+                <div class="media">
+                  <% comments.forEach(comment=> { %>
+                    <div class="media-body d-flex justify-content-start align-items-center gap-4 ">
+                    <img width="60px" height="60px" src=<%= comment.commentImg %> class="mr-3 rounded-circle" alt="User Avatar">
+                    <h5 class="mt-0"><%=comment.name %></h5>
+                    </div>
+                    <div class="newdiv p-2">
+                    <p> <%= comment.commentBody %></p>
+                    </div>
+                  
+                  <% }) %>
+                </div>
+                <!-- Add more comments here -->
+              </div>
+            </div>
+          </div>
+
+        <%- include("partials/script") %>
+
+</body>
+
+</html>

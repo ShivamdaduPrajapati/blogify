@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <%- include("partials/link") %>
+</head>
+<style>
+    .profile-pic {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+</style>
+
+<body>
+    <div class="container mt-4">
+        <%- include("partials/nav") %>
+        <div class="mt-4">
+            <img class="profile-pic rounded-circle"  src="<%= image %>" alt="profile picture">
+        </div>
+            <form class="mt-1" action="/user/editprofile" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="profileimage">Profile Image</label>
+                    <input type="file" name="profileimage" value="<%= image %>"  class="form-control" id="image">
+                </div>
+                <div class="form-group">
+                    <label for="nameInput">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" placeholder="Enter your name">
+                </div>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </div>
+            </form>
+    </div>
+
+    <%- include("partials/script") %>
+</body>
+
+</html>

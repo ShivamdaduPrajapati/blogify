@@ -1,0 +1,62 @@
+#node_modules
+#.env
+# Node.js modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# dotenv environment variables file
+.env
+
+# Build output
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Cache
+.cache/
+.nyc_output/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Optional npm cache directory
+.npm
+
+# Optional yarn cache directory
+.yarn
+.yarn-integrity
+
+# VSCode workspace settings
+.vscode/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Miscellaneous
+*.bak
+*.swp
+*.swo

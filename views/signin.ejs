@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(15, 13, 13, 0.698);
+    }
+    .container{
+        margin: auto;
+        margin-top: 15vh;
+        width: 30vw;
+        height: 70vh;
+        border-radius: 30px;
+        border: 2px solid black;
+        background-color: rgba(0, 0, 0, 0.745);
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h1{
+        font-family: sans-serif;
+        font-size: 40px;
+        font-weight: 700;
+        padding: 20px;
+        color: white;
+    }
+    form{
+        font-family: sans-serif;
+        padding-top: 10vh;
+        font-size: 20px;
+        font-weight: 400;
+        display: flex;
+        color: white;
+        flex-direction: column;
+        gap: 20px;
+    }
+    form input{
+        color: black;
+        padding: 3px 5px;
+        font-size: 15px;
+        border-radius: 20px;
+    }
+    .button{
+        display: inline-block;  
+    }
+    button{
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+
+        align-items: center;
+        border-radius: 20px;
+        box-sizing: border-box;
+        background-color: black;
+        color: white;
+        padding: 5px 10px;
+        margin-left: 40%;
+        margin-top: 5vh;
+    }
+    .message{
+        font-family: sans-serif;
+        font-size: 20px;
+        color: red;
+        font-weight: 400;
+        margin-left: 5%;
+        margin-top: 15px;
+    }
+</style>
+
+<body>
+    
+    <div class="container">
+        <h1>Signin</h1>
+        <div class="form">
+            <form action="/signin" method="post">
+                <div class="label1">
+                    <label for="">Name    </label>
+                    <input type="text" required name="name"><br>
+                </div>
+               <div class="label2">
+                <label for="">Email   </label>
+                <input type="email" required name="email"><br>
+               </div>
+                <div class="label3">
+                    <label for="">Password</label>
+                    <input type="password" required name="password"><br>
+                </div>
+                <div class="button">
+                    <button type="submit">Signin</button>
+                </div>
+            </form>
+        </div>
+ 
+    <div class="message">
+    <% if (locals.message) { %>
+     <%= message %>
+    <% } %>
+     </div>
+    </div>
+    
+
+    
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h2 class="text-center mb-4">Sign In</h2>
+                <form action="/signin" method="post">
+                    <div class="form-group">
+                        <label for="text">Username</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Username" required name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" required name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" required name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+                <div class="text-center mt-3">
+                    <!-- <p>Don't have an account? <a href="#">Sign up</a></p> -->
+                    <p>Already have an account? <a href="/login">Log in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="message">
+        <% if (locals.message) { %>
+         <%= message %>
+        <% } %>
+         </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

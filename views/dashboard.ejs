@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    .profile-pic {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+</style>
+
+<body>
+    <div class="container mt-4">
+        <%- include("partials/nav") %>
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Profile Section -->
+                    <div class="col-md-3 text-center">
+                        <img class="profile-pic rounded-circle" src="<%= image %>" alt="Profile Photo" class="rounded-circle img-fluid mb-3" width="150">
+                        <h4>
+                            <%= user.name %>
+                        </h4>
+                        <p>Total BLogs: <span class="text-success">120</span></p>
+                        <p>Total Likes: <span class="text-success">120</span></p>
+                        <p>Total Views: <span class="text-success">300</span></p>
+                        <a href="/user/editprofile">
+                            <button class="btn btn-primary btn-sm col-mt-4">Edit Profile</button>
+                        </a>
+                    </div>
+
+                    <!-- Blogs Section -->
+                    <div class="col-md-9">
+                        <h3>Your Blogs</h3>
+                        <ul class="list-group">
+                            <!-- <li class="list-group-item">
+                        <h5>Blog Title 1</h5>
+                        <p>Short description of the blog...</p>
+                        <button class="btn btn-primary btn-sm">Edit</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </li>
+                    <li class="list-group-item">
+                        <h5>Blog Title 2</h5>
+                        <p>Short description of the blog...</p>
+                        <button class="btn btn-primary btn-sm">Edit</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </li> -->
+                            <% blogs.forEach(blog=> { %>
+                                <div class="container mt-5">
+                                    <div class="card mb-3" style="max-width: 800px;">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <a href="/blog/<%= blog._id %>">
+                                                    <img src="<%= blog.coverImage %>" class="img-fluid"
+                                                        alt="Placeholder Image">
+                                                </a>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">
+                                                        <%= blog.title %>
+                                                    </h5>
+                                                    <a href="/blog/edit/<%= blog.id %>"
+                                                        class="btn btn-primary mr-2">Edit</a>
+                                                    <a href="/blog/delete/<%= blog.id %>"
+                                                        class="btn btn-danger">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+                                    <!-- <% blogs.forEach(blog=> { %>
+                        <div class="col-md-4">
+                            <div class="card custom-card">
+                                <a href="/blog/<%= blog._id %>">
+                                    <img src="<%= blog.coverImage %>" class="img-fluid"
+                                        alt="Placeholder Image">
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= blog.title %>
+                                    </h5>
+                                    <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read Blog</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %> -->
+                                    <!-- Add more blog items as needed -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
